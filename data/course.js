@@ -1,0 +1,42 @@
+import config from "../course.json";
+
+const DEFAULT_CONFIG = {
+  authors: [
+    {
+      name: "An Author",
+      company: "An Author's Company",
+      image: "author.jpg",
+    },
+  ],
+  title: "A Superb Course",
+  subtitle: "That Teaches Nice Things",
+  frontendMastersLink: "",
+  description: "A nice course for nice people.",
+  keywords: ["a nice course", "for people", "to learn", "nice things"],
+  social: {
+    linkedin: "btholt",
+    github: "btholt",
+    twitter: "holtbt",
+    bluesky: "brianholt.me",
+  },
+  productionBaseUrl: "/",
+};
+
+export default function getCourseConfig() {
+  const merged = Object.assign({}, DEFAULT_CONFIG, config);
+
+  if (!merged.authors && merged.author) {
+    merged.authors = [merged.author];
+  }
+
+  merged.authors = merged.authors.map((author) => ({
+    image: "author.jpg",
+    ...author,
+  }));
+
+  if (!merged.author) {
+    merged.author = merged.authors[0];
+  }
+
+  return merged;
+}
