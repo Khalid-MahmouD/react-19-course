@@ -52,7 +52,7 @@ Note this site doesn't use `next/image` because that requires the server compone
 
 Your image. If you call it this, you won't have to change any code — it's the default for the first author. For a second author, drop another image (e.g. `second-author.jpg`) into `public/images/` and reference it via `authors[].image` in `course.json`.
 
-### public/images/social-share-cover.jpg
+### public/images/social-share-cover.png
 
 The image that will be used if someone shares your website to Twitter/Facebook/etc. If you call it this, you won't have to change any code. If you do need to change it, it's in `pages/index.js`
 
