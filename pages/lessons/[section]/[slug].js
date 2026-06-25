@@ -13,12 +13,14 @@ export default function LessonSlug({ post }) {
 
   let nextLink, prevLink;
   if (post.nextSlug) {
-    const shortNextSlug = post.nextSlug.replace(/^.*?\\.*?(?=\\)/, "");
-    nextLink = shortNextSlug.replace(/\\/g, "/");
+    // Normalize backslashes (Windows path.join) to forward slashes
+    const normalized = post.nextSlug.replace(/\\/g, "/");
+    // Strip basePath prefix, keep only /lessons/... portion
+    nextLink = normalized.replace(/^.*?(\/lessons\/)/, "/lessons/");
   }
   if (post.prevSlug) {
-    const shortPrevSlug = post.prevSlug.replace(/^.*?\\.*?(?=\\)/, "");
-    prevLink = shortPrevSlug.replace(/\\/g, "/");
+    const normalized = post.prevSlug.replace(/\\/g, "/");
+    prevLink = normalized.replace(/^.*?(\/lessons\/)/, "/lessons/");
   }
 
   useEffect(() => {
