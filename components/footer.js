@@ -1,9 +1,8 @@
-import React from "react";
-import Gh from "./github";
-import Tw from "./twitter";
-import Li from "./linkedin";
 import Bs from "./bluesky";
+import Gh from "./github";
+import Li from "./linkedin";
 import ThemeIcons from "./themeicons";
+import Tw from "./twitter";
 
 export default function Footer({ twitter, linkedin, github, bluesky }) {
   return (
@@ -38,14 +37,7 @@ export default function Footer({ twitter, linkedin, github, bluesky }) {
           </li>
         ) : null}
         <li className="social">
-          <div className="terms">
-            <p>Content Licensed Under CC-BY-NC-4.0</p>
-            <p>Code Samples and Exercises Licensed Under Apache 2.0</p>
-            <p>
-              Site Designed by{" "}
-              <a href="https://www.alexdanielson.com/">Alex Danielson</a>
-            </p>
-          </div>
+          <div className="terms" />{" "}
         </li>
       </ul>
       <div className="theme-icons">
